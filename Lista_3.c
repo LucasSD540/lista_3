@@ -2,7 +2,7 @@
 #include<locale.h>
 
 char nome[100], endereco[100], corBlusa, corCalca;
-int senha, menu, telefone, cor_nike, calca, pagamento, contador, blusa;
+int senha, menu, telefone, calca, pagamento, contador, blusa;
 
 void cadastrarCliente() {
 	printf("Digite o nome do cliente: \n");
@@ -32,14 +32,32 @@ void escolherBlusa() {
 	scanf("%i", &corBlusa);
 	
 	printf("Escolha a forma de pagamento: \n");
-	printf("1) Cartão de crédito: \n");
-	printf("2) Pix: \n");
-	printf("3) Boleto: \n");
+	printf("1) Cartão de crédito \n");
+	printf("2) Pix \n");
+	printf("3) Boleto \n");
 	scanf("%i", &pagamento);
 }
 
 void escolherCalca() {
+	printf("Escolha a blusa: \n");
+	printf("1 - Calça Nike \n");
+	printf("2 - Calça Adidas \n");
+	printf("3 - Calça Puma \n\n");
+	fflush(stdin);
+	scanf("%i", &calca);
 	
+	printf("Escolha a cor da blusa \n");
+	printf("1 - Azul \n");
+	printf("2 - Branca \n");
+	printf("3 - Preta \n\n");
+	fflush(stdin);
+	scanf("%i", &corCalca);
+	
+	printf("Escolha a forma de pagamento: \n");
+	printf("1) Cartão de crédito \n");
+	printf("2) Pix \n");
+	printf("3) Boleto \n");
+	scanf("%i", &pagamento);	
 }
 
 main(void) {
