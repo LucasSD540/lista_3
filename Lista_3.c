@@ -1,17 +1,64 @@
 #include<stdio.h>
 #include<locale.h>
 
-char nome[100], endereco[100], corBlusa, corCalca, blusa[100];
-int senha, menu, telefone, cor_nike, calca, pagamento, contador;
+char nome[100], endereco[100], corBlusa, corCalca;
+int senha, menu, telefone, cor_nike, calca, pagamento, contador, blusa;
+
+void cadastrarCliente() {
+	printf("Digite o nome do cliente: \n");
+	fflush(stdin);
+	gets(nome);
+	printf("Digite o telefone do cliente: \n");
+	fflush(stdin);
+	scanf("%i", &telefone);
+	printf("Digite o endereÃ§o do cliente: \n");
+	fflush(stdin);
+	gets(endereco);
+}
+
+void escolherBlusa() {
+	printf("Escolha a blusa: \n");
+	printf("1 - Blusa Nike \n");
+	printf("2 - Blusa Adidas \n");
+	printf("3 - Blusa Puma \n\n");
+	fflush(stdin);
+	scanf("%i", &blusa);
+	
+	printf("Escolha a cor da blusa \n");
+	printf("1 - Azul \n");
+	printf("2 - Branca \n");
+	printf("3 - Preta \n\n");
+	fflush(stdin);
+	scanf("%i", &corBlusa);
+	
+	printf("Escolha a forma de pagamento: \n");
+	printf("1) CartÃ£o de crÃ©dito: \n");
+	printf("2) Pix: \n");
+	printf("3) Boleto: \n");
+	scanf("%i", &pagamento);
+}
+
+void escolherCalca() {
+	
+}
 
 main(void) {
 	setlocale(LC_ALL, "");
+	
 	printf("Para efetuar o login, digite sua senha: \n");
 	scanf("%i", &senha);
+	
+	while (senha != 123) {
+		printf("ERRO DE SENHA \n");
+		printf("Digite sua senha novamente: \n");
+		scanf("%i", &senha);
+	}
 	
 	if (senha == 123) {
 		contador = 1;
 	}
+	
+	system("cls");
 	
 	while(senha == 123) {
 		
@@ -23,66 +70,29 @@ main(void) {
 		
 		printf("1- Cadastro cliente\n");
 		printf("2 - Compra de Blusas\n");
-		printf("3 - Compra de Calças\n");
+		printf("3 - Compra de CalÃ§as\n");
+		printf("4 - Sair do programa\n");
 		fflush(stdin);
 		scanf("%i", &menu);
 		
 		switch(menu) {
-			case 1 : {
+			case 1 : 
 				system("cls");
-				printf("Digite o nome do cliente: \n");
-				fflush(stdin);
-				gets(nome);
-				printf("Digite o telefone do cliente: \n");
-				fflush(stdin);
-				scanf("%i", &telefone);
-				printf("Digite o endereço do cliente: \n");
-				fflush(stdin);
-				gets(endereco);
+				cadastrarCliente();
 				break;
+			case 2 :
 				system("cls");
-			}
-			case 2 : {
-				system("cls");
-				printf("1- Blusa Nike (nike)\n");
-				printf("2 - Blusa Adidas (adidas)\n");
-				printf("3 - Blusa Puma (puma)\n");
-				gets(blusa);
-				
-				if (blusa == "nike") {
-					printf("Qual a cor da blusa? \n");
-					printf("Azul código da cor: (1234) \n");
-					printf("Branca código da cor: (2345)\n");
-					printf("Preta código da cor: (3456)\n");
-					scanf("%i", &cor_nike);
-					
-					
-					switch (cor_nike) {
-						case 1234 :
-							printf("Você escolheu a cor azul");
-							break;
-						
-						case 2345 :
-							printf("Você escolheu a cor branca");
-							break;
-						
-						case 3456 :
-							printf("Você escolheu a cor preta");
-							break;
-						
-					}
-				}
-				if ((cor_nike == 1234) || (cor_nike == 2345) || (cor_nike == 3456)) {
-						printf("Escolha a forma de pagamento: \n");
-						printf("1) Cartão de crédito: \n");
-						printf("2) Pix: \n");
-						printf("3) Boleto: \n");
-						scanf("%i", &pagamento);
-					} else {
-						printf(" ");
-					}
-				}
+				escolherBlusa();
 				break;
+			case 3 :
+				system("cls");
+				escolherCalca();	
+				break;
+					
+			case 4 : 
+				system("cls");
+				printf("PROGRAMA FINALIZADO!");
+				return 0;
 			}
 			
 			if (senha == 123) {
